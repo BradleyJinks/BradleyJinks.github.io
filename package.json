@@ -10,14 +10,12 @@
     "type": "git",
     "url": "git+https://github.com/BradleyJinks/BradleyJinks.github.io.git"
   },
-  "keywords": [
-    "portfolio",
-    "mysite"
-  ],
+  "keywords": ["portfolio", "mysite"],
   "author": "Bradley Jinks",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/BradleyJinks/BradleyJinks.github.io/issues"
   },
-  "homepage": "https://github.com/BradleyJinks/BradleyJinks.github.io#readme"
+  "homepage": "https://github.com/BradleyJinks/BradleyJinks.github.io#readme",
+  "dependencies": {}
 }
