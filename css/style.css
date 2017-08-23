@@ -1,4 +1,42 @@
+body {
+  font-family: 'Roboto', sans-serif !important;
+}
 #header__img {
-  border: 8px;
+  border: 8px solid #343a40 !important;
+  transition: 1s ease;
+}
+
+#header__img:hover {
+  transform: scale(1.11);
 }
 /* TODO: Add 8px border to header image */
+
+.portfolio {
+  padding-top: 20px;
+}
+
+.portfolio__button--code {
+  float: left;
+  width: 50%;
+}
+.portfolio__button--demo {
+  width: 50%;
+}
+
+/* Hover Effect src https://miketricking.github.io/bootstrap-image-hover/*/
+.icons a i {
+  border-radius: 50%;
+  border: 3px solid white;
+  display: inline-block;
+  padding: 20px;
+  margin-right: 20px;
+  color: white;
+  text-decoration: none; /* no underline */
+  transition: 1s ease;
+}
+
+.icons a i:hover {
+  transform: scale(1.11);
+  border: 3px solid #343a40;
+  color: #343a40;
+}
