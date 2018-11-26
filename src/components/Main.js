@@ -22,7 +22,30 @@ class Main extends React.Component {
         <article id="work" className={`${this.props.article === 'work' ? 'active' : ''} ${this.props.articleTimeout ? 'timeout' : ''}`} style={{display:'none'}}>
           <h2 className="major">Work</h2>
           <span className="image main"><img src={pic02} alt="" /></span>
-          <p>TBD</p>
+          <h3>Hello</h3>
+          <p>Project desc</p>
+          <ul>
+            <li>Front-End:</li>
+            <li>Back-End:</li>
+            <li>Database:</li>
+            <li>Hosting:</li>
+          </ul>
+          <h3>Hello</h3>
+          <p>Project desc</p>
+          <ul>
+            <li>Front-End:</li>
+            <li>Back-End:</li>
+            <li>Database:</li>
+            <li>Hosting:</li>
+          </ul>
+          <h3>Hello</h3>
+          <p>Project desc</p>
+          <ul>
+            <li>Front-End:</li>
+            <li>Back-End:</li>
+            <li>Database:</li>
+            <li>Hosting:</li>
+          </ul>
           {close}
         </article>
 
