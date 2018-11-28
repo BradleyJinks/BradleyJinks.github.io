@@ -1,15 +1,42 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import pic01 from '../images/pic01.jpg'
 import pic02 from '../images/pic02.jpg'
-import pic03 from '../images/pic03.jpg'
+import fetch from 'cross-fetch';
+import WorkItem from './WorkItem';
 
 class Main extends React.Component {
+  state={
+    loading:true
+  }
+  componentDidMount(){
+const slef = this;
+    fetch('https://api.github.com/users/bradleyjinks/repos')
+        .then(function(response){ 
+            return response.json(); 
+        })
+        .then(function(json){ 
+          slef.setState({repos: json,loading:false}); 
+        });
+  }
+  
+  renderRepos(){
+    
+    if(this.state.loading){
+      return <p>Loading ......</p>
+    }else{
+      let {repos} = this.state;
+      return Object.keys(repos).map((key)=>{
+        let repo=repos[key];
+        return <WorkItem key={key} repo={repo}></WorkItem>
+      })
+    }
+  }
   render() {
 
     let close = <div className="close" onClick={() => {this.props.onCloseArticle()}}></div>
-
+    
+    //console.log(gitRepos);
     return (
       <div ref={this.props.setWrapperRef} id="main" style={this.props.timeout ? {display: 'flex'} : {display: 'none'}}>
 
@@ -22,30 +49,7 @@ class Main extends React.Component {
         <article id="work" className={`${this.props.article === 'work' ? 'active' : ''} ${this.props.articleTimeout ? 'timeout' : ''}`} style={{display:'none'}}>
           <h2 className="major">Work</h2>
           <span className="image main"><img src={pic02} alt="" /></span>
-          <h3>Hello</h3>
-          <p>Project desc</p>
-          <ul>
-            <li>Front-End:</li>
-            <li>Back-End:</li>
-            <li>Database:</li>
-            <li>Hosting:</li>
-          </ul>
-          <h3>Hello</h3>
-          <p>Project desc</p>
-          <ul>
-            <li>Front-End:</li>
-            <li>Back-End:</li>
-            <li>Database:</li>
-            <li>Hosting:</li>
-          </ul>
-          <h3>Hello</h3>
-          <p>Project desc</p>
-          <ul>
-            <li>Front-End:</li>
-            <li>Back-End:</li>
-            <li>Database:</li>
-            <li>Hosting:</li>
-          </ul>
+          {this.renderRepos()}
           {close}
         </article>
 
